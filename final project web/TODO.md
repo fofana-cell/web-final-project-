@@ -1,0 +1,1 @@
+- [x] Add profile image to the About section in index.html

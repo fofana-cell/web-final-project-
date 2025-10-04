@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Fofana Sita | Portfolio</title>
+  <link rel="stylesheet" href="style.css">
+  <!-- React and ReactDOM -->
+  <script src="https://unpkg.com/react@18/umd/react.development.js" crossorigin></script>
+  <script src="https://unpkg.com/react-dom@18/umd/react-dom.development.js" crossorigin></script>
+  <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+</head>
+<body>
+  <!-- MOBILE HEADER -->
+  <div class="mobile-header">
+    <button class="menu-toggle" aria-expanded="false" aria-controls="main-nav">
+      <span class="visually-hidden">Menu</span>
+      <svg width="20" height="14" viewBox="0 0 20 14" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <rect width="20" height="2" y="0" rx="1" fill="currentColor"></rect>
+        <rect width="20" height="2" y="6" rx="1" fill="currentColor"></rect>
+        <rect width="20" height="2" y="12" rx="1" fill="currentColor"></rect>
+      </svg>
+    </button>
+  </div>
+
+  <!-- SIDEBAR MENU -->
+  <div class="sidebar" id="sidebar">
+    <nav id="main-nav">
+      <ul>
+        <li><a href="#hero" class="nav-link">Home</a></li>
+        <li><a href="#about" class="nav-link">About</a></li>
+        <li><a href="#skills" class="nav-link">Skills</a></li>
+        <li><a href="#projects" class="nav-link">Projects</a></li>
+        <li><a href="#contact" class="nav-link">Contact</a></li>
+      </ul>
+    </nav>
+  </div>
+
+  <div class="main-content">
+    <!-- HERO -->
+    <section class="hero" id="hero">
+      <canvas id="hero-bg"></canvas>
+      <div class="hero-content">
+        <h1 class="hero-title">Fofana Sita</h1>
+        <p class="hero-subtitle">Web Developer</p>
+        <a href="#projects" class="btn hero-btn">View My Work</a>
+      </div>
+    </section>
+
+    <main>
+      <!-- ABOUT -->
+      <section id="about">
+        <div class="profile-badge">
+          <img src="images/profile.jpg.png" alt="Fofana Sita Profile">
+        </div>
+        <div>
+          <h2>About Me</h2>
+          <p>I’m a web developer who loves making modern and easy-to-use websites. I enjoy turning ideas into interactive experiences that people enjoy.</p>
+          <p>I have experience with HTML, CSS, JavaScript, and different frameworks. I focus on building websites that are simple, user-friendly, and accessible. I’m always excited to learn new tools and work on creative projects.</p>
+        </div>
+      </section>
+
+      <!-- SKILLS -->
+      <section id="skills">
+        <h2>Skills</h2>
+        <div class="skills-grid">
+          <div class="skill">
+            <span>HTML</span>
+            <div class="progress-bar"><div class="progress" style="width:85%"></div></div>
+          </div>
+          <div class="skill">
+            <span>CSS</span>
+            <div class="progress-bar"><div class="progress" style="width:80%"></div></div>
+          </div>
+          <div class="skill">
+            <span>JavaScript</span>
+            <div class="progress-bar"><div class="progress" style="width:75%"></div></div>
+          </div>
+          <div class="skill">
+            <span>MySQL</span>
+            <div class="progress-bar"><div class="progress" style="width:70%"></div></div>
+          </div>
+        </div>
+      </section>
+
+      <!-- PROJECTS -->
+      <section id="projects">
+        <h2>Projects</h2>
+        <div id="react-projects"></div>
+      </section>
+
+      <!-- CONTACT -->
+      <section id="contact">
+        <h2>Contact</h2>
+        <p style="font-weight: bold; margin-bottom: 20px;">Email me at <a href="mailto:fsita303@gmail.com" style="color: red;">fsita303@gmail.com</a> or use the form below:</p>
+        <div class="social-links" style="margin-bottom: 20px;">
+          <a href="#" class="social-link">Instagram</a>
+          <a href="https://github.com/fofana-cell" class="social-link" target="_blank" rel="noopener noreferrer">GitHub</a>
+          <a href="#" class="social-link">Twitter</a>
+        </div>
+        <form id="contact-form" style="margin-bottom: 20px;">
+          <input type="text" id="name" name="name" placeholder="Your name" required>
+          <input type="email" id="email" name="email" placeholder="Your email" required>
+          <textarea id="message" name="message" rows="4" placeholder="Message..." required></textarea>
+          <button type="submit" class="btn">Send</button>
+        </form>
+        <div id="form-message"></div>
+      </section>
+    </main>
+
+    <!-- FOOTER -->
+    <footer class="footer">
+      <p>&copy; 2025 Fofana Sita | Built with HTML, CSS & JavaScript</p>
+    </footer>
+  </div>
+
+  <!-- REACT PROJECTS SCRIPT -->
+  <script type="text/babel">
+    const projects = [
+      { title: "Responsive Blog", desc: "A responsive blog platform built with HTML, CSS, and JavaScript." },
+      { title: "Portfolio Website", desc: "This personal portfolio showcasing my skills, projects, and experience." },
+      { title: "Online Shopping", desc: "A sample website with product pages, shopping cart, checkout features." }
+    ];
+
+    function ProjectCard({ title, desc }) {
+      return (
+        <div className="project-card">
+          <h3>{title}</h3>
+          <p>{desc}</p>
+        </div>
+      );
+    }
+
+    function Projects() {
+      return (
+        <div className="projects-grid">
+          {projects.map((p, index) => <ProjectCard key={index} {...p} />)}
+        </div>
+      );
+    }
+
+    const root = ReactDOM.createRoot(document.getElementById("react-projects"));
+    root.render(<Projects />);
+  </script>
+
+  <!-- YOUR OLD JS -->
+  <script src="scriptt.js"></script>
+</body>
+</html>
